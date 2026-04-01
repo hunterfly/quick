@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id         Int          @id @default(autoincrement())
+  name       String
+  email      String       @unique
+  password   String
+  role       UserRole     @default(EMPLOYEE)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  approvals  PRApproval[] @relation("Approver")
+  prRequests PRRequest[]  @relation("Requester")
+
+  @@map("users")
+}
+
+model PRRequest {
+  id          Int          @id @default(autoincrement())
+  prNumber    String       @unique
+  requesterId Int
+  status      PRStatus     @default(DRAFT)
+  totalAmount Float        @default(0)
+  note        String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  submittedAt DateTime?
+  attachments Attachment[]
+  approvals   PRApproval[]
+  items       PRItem[]
+  requester   User         @relation("Requester", fields: [requesterId], references: [id])
+
+  @@map("pr_requests")
+}
+
+model PRItem {
+  id           Int       @id @default(autoincrement())
+  prId         Int
+  itemName     String
+  quantity     Int
+  unitPrice    Float
+  totalPrice   Float
+  requiredDate DateTime
+  pr           PRRequest @relation(fields: [prId], references: [id], onDelete: Cascade)
+
+  @@map("pr_items")
+}
+
+model PRApproval {
+  id         Int            @id @default(autoincrement())
+  prId       Int
+  approverId Int?
+  level      Int
+  action     ApprovalAction @default(PENDING)
+  comment    String?
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  approver   User?          @relation("Approver", fields: [approverId], references: [id])
+  pr         PRRequest      @relation(fields: [prId], references: [id], onDelete: Cascade)
+
+  @@map("pr_approvals")
+}
+
+model ApprovalRule {
+  id             Int      @id @default(autoincrement())
+  minAmount      Float
+  maxAmount      Float
+  requiredLevels Int      @default(1)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("approval_rules")
+}
+
+model Attachment {
+  id        Int       @id @default(autoincrement())
+  prId      Int
+  filePath  String
+  fileName  String
+  createdAt DateTime  @default(now())
+  pr        PRRequest @relation(fields: [prId], references: [id], onDelete: Cascade)
+
+  @@map("attachments")
+}
+
+enum UserRole {
+  EMPLOYEE
+  MANAGER
+  FINANCE
+  ADMIN
+}
+
+enum PRStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+}
+
+enum ApprovalAction {
+  APPROVED
+  REJECTED
+  PENDING
+}

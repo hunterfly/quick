@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Tickets Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-card">
+          <div class="brand-mark">
+            <span class="brand-glow"></span>
+            <span class="brand-name">Aqon</span>
+          </div>
+          <button class="collapse-btn" aria-label="Collapse navigation">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 7 9 12l4.5 5" />
+              <path d="M19 7l-4.5 5L19 17" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-group">
+            <p class="nav-label">Main Menu</p>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-grid"></span>
+              <span>My Dock</span>
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-pulse"></span>
+              <span>Insights</span>
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-folder"></span>
+              <span>All Projects</span>
+            </a>
+            <a class="nav-item active" href="#">
+              <span class="nav-icon icon-ticket"></span>
+              <span>All Tickets</span>
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-users"></span>
+              <span>Crew Members</span>
+            </a>
+          </div>
+
+          <div class="nav-group company-group">
+            <p class="nav-label">Company</p>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-user"></span>
+              <span>Account</span>
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-chart"></span>
+              <span>Reports</span>
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-cube"></span>
+              <span>Integrations</span>
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon icon-shield"></span>
+              <span>Audit Dashboard</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="page-title">
+            <span class="title-icon icon-ticket"></span>
+            <div>
+              <h1>All Tickets</h1>
+              <p>Workflow timing, approvals, and assignee visibility in one workspace.</p>
+            </div>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="icon-button" aria-label="Search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="5.75" />
+                <path d="m16 16 3.6 3.6" />
+              </svg>
+            </button>
+            <button class="icon-button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5.5a4 4 0 0 0-4 4v2.25c0 .6-.2 1.18-.57 1.65L6 15.25h12l-1.43-1.85a2.7 2.7 0 0 1-.57-1.65V9.5a4 4 0 0 0-4-4Z" />
+                <path d="M10 17.5a2 2 0 0 0 4 0" />
+              </svg>
+              <span class="status-dot"></span>
+            </button>
+
+            <div class="profile-chip">
+              <div class="avatar avatar-lg">A</div>
+              <div>
+                <strong>Ayaan Zafar</strong>
+                <span>zafar@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="canvas">
+          <div class="crumb-bar">
+            <div class="crumb-left">
+              <button class="crumb-back" aria-label="Go back">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m14.5 6.5-5 5 5 5" />
+                </svg>
+              </button>
+
+              <div class="crumb-pill">
+                <span class="crumb-icon icon-folder"></span>
+                <span class="crumb-code">$project_id</span>
+                <span class="crumb-divider">/</span>
+                <span class="crumb-icon icon-book"></span>
+                <span>$ticket_id</span>
+                <span class="crumb-muted">$ticket_title</span>
+              </div>
+            </div>
+
+            <button class="icon-button subtle" aria-label="Refresh">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 8.25V4.5l-3 3" />
+                <path d="M6.5 9.5A7 7 0 0 1 18 8.25" />
+                <path d="M6 15.75v3.75l3-3" />
+                <path d="M17.5 14.5A7 7 0 0 1 6 15.75" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="toolbar">
+            <div class="tabs">
+              <button class="tab">
+                <span class="tab-icon icon-note"></span>
+                <span>Details</span>
+              </button>
+              <button class="tab active">
+                <span class="tab-icon icon-clock"></span>
+                <span>Time</span>
+              </button>
+              <button class="tab">
+                <span class="tab-icon icon-history"></span>
+                <span>History</span>
+              </button>
+            </div>
+
+            <div class="timestamp-pill">
+              <span class="tab-icon icon-calendar"></span>
+              <span>As of: 2025-05-17 14:28</span>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <aside class="ticket-panel section-panel">
+              <div class="progress-meter">
+                <span class="meter-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8" />
+                    <path d="M12 8v4l3 2" />
+                  </svg>
+                </span>
+                <div class="meter-track"></div>
+                <span class="meter-knob"></span>
+              </div>
+
+              <div class="review-stack">
+                <button class="status-card muted">Pending PR Review</button>
+                <button class="status-card primary">Approve PR Review</button>
+              </div>
+
+              <div class="crew-card">
+                <div class="section-heading">
+                  <span class="dot-badge">2</span>
+                  <h2>Ticket Crew</h2>
+                </div>
+
+                <div class="crew-list">
+                  <div class="crew-row">
+                    <span class="crew-meta">Current Assignee</span>
+                    <div class="crew-person">
+                      <div class="avatar avatar-brown">C</div>
+                      <span>Courtney Henry</span>
+                    </div>
+                    <span class="crew-edit">✎</span>
+                  </div>
+
+                  <div class="crew-row">
+                    <span class="crew-meta">Last Modified By</span>
+                    <div class="crew-person">
+                      <div class="avatar avatar-gold">T</div>
+                      <span>Tim David</span>
+                    </div>
+                    <span class="crew-edit">✎</span>
+                  </div>
+
+                  <div class="crew-row">
+                    <span class="crew-meta">Last Modified By</span>
+                    <div class="crew-person">
+                      <div class="avatar avatar-pink">D</div>
+                      <span>Dashi Lucke</span>
+                    </div>
+                    <span class="crew-edit">✎</span>
+                  </div>
+
+                  <div class="crew-row">
+                    <span class="crew-meta">PR Created On</span>
+                    <div class="crew-person">
+                      <div class="avatar avatar-coral">O</div>
+                      <span>Olivia Martinez</span>
+                    </div>
+                    <span class="crew-edit">✎</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <section class="main-content">
+              <article class="section-panel">
+                <div class="panel-header">
+                  <div class="panel-title">
+                    <span class="section-icon icon-clock"></span>
+                    <h2>Total Time Spent (XXXh XXm)</h2>
+                  </div>
+                  <button class="panel-chevron" aria-label="Collapse section">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="m7 14 5-5 5 5" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="metrics-table">
+                  <div class="metrics-head">
+                    <span>All Commits</span>
+                    <span>PR Approval</span>
+                    <span>PR Merge</span>
+                    <span>QA Approval</span>
+                    <span>Product Approval</span>
+                    <span>PPV Approval</span>
+                  </div>
+                  <div class="metrics-row">
+                    <span>XXh XXm</span>
+                    <span>XXh XXm</span>
+                    <span>XXh XXm</span>
+                    <span>XXh XXm</span>
+                    <span>XXh XXm</span>
+                    <span>XXh XXm</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="section-panel">
+                <div class="panel-header">
+                  <div class="panel-title">
+                    <span class="section-icon icon-list"></span>
+                    <h2>Time Entries (7)</h2>
+                  </div>
+                  <button class="panel-chevron" aria-label="Collapse section">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="m7 14 5-5 5 5" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="entries">
+                  <section class="entry-group">
+                    <div class="entry-label">
+                      <span class="mini-icon icon-branch"></span>
+                      <strong>$commit_id</strong>
+                    </div>
+                    <div class="entry-head">
+                      <span>User</span>
+                      <span>Date &amp; Time</span>
+                      <span>Time in Status</span>
+                      <span>Time Entry</span>
+                    </div>
+                    <div class="entry-row">
+                      <div class="user-cell">
+                        <div class="avatar avatar-red">T</div>
+                        <span>Theresa Webb</span>
+                      </div>
+                      <span>March 15, 2025</span>
+                      <span>Open</span>
+                      <span class="entry-time">10 : 30 PM</span>
+                    </div>
+                  </section>
+
+                  <section class="entry-group">
+                    <div class="entry-label">
+                      <span class="mini-icon icon-shuffle"></span>
+                      <strong>$action_type</strong>
+                    </div>
+                    <div class="entry-head">
+                      <span>User</span>
+                      <span>Date &amp; Time</span>
+                      <span>Time in Status</span>
+                      <span>Time Entry</span>
+                    </div>
+                    <div class="entry-row">
+                      <div class="user-cell">
+                        <div class="avatar avatar-charcoal">J</div>
+                        <span>Jonas Smith</span>
+                      </div>
+                      <span>March 15, 2025</span>
+                      <span>Open</span>
+                      <span class="entry-time">10 : 30 PM</span>
+                    </div>
+                  </section>
+
+                  <section class="entry-group">
+                    <div class="entry-label">
+                      <span class="mini-icon icon-cycle"></span>
+                      <strong>$action_type</strong>
+                    </div>
+                    <div class="entry-head">
+                      <span>User</span>
+                      <span>Date &amp; Time</span>
+                      <span>Time in Status</span>
+                      <span>Time Entry</span>
+                    </div>
+                    <div class="entry-row">
+                      <div class="user-cell">
+                        <div class="avatar avatar-olive">C</div>
+                        <span>Courtney Henry</span>
+                      </div>
+                      <span>March 15, 2025</span>
+                      <span>Open</span>
+                      <span class="entry-time">10 : 30 PM</span>
+                    </div>
+                  </section>
+
+                  <section class="entry-group">
+                    <div class="entry-label">
+                      <span class="mini-icon icon-calendar"></span>
+                      <strong>$action_type</strong>
+                    </div>
+                    <div class="entry-head">
+                      <span>User</span>
+                      <span>Date &amp; Time</span>
+                      <span>Time in Status</span>
+                      <span>Time Entry</span>
+                    </div>
+                    <div class="entry-row">
+                      <div class="user-cell">
+                        <div class="avatar avatar-blue">G</div>
+                        <span>Guy Hawkins</span>
+                      </div>
+                      <span>March 15, 2025</span>
+                      <span>Open</span>
+                      <span class="entry-time">10 : 30 PM</span>
+                    </div>
+                  </section>
+                </div>
+              </article>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
